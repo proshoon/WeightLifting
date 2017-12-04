@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Analysis of exercise data captured by activity monitors.
 Objective is to predict effectiveness of specific exercise motions based on accelerometer data.
 ```{r cars}
+library(caret)
 training <- read.csv("https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv", na.strings = c("NA", "#DIV/0!", ""))
 #160 variables. may of them can be removed because they're empty
 training <- training[, colSums(is.na(training)) == 0]  #removed lots of columns ; 160->60
@@ -41,10 +42,10 @@ confrpart <- confusionMatrix(myvalid$classe, predrpart)
 #Since RPART had very low accuracy, Random Forest was attempted
 # THE 3/4 SPLIT (as mentioned above) didn't work because it was computationally very heavy. 
 #Was taking too much time. Hence, training was done on 1/10th of the data
-#inTrain1 <- createDataPartition(training$classe, p = 1/10, list = FALSE)
-#inTrain2 <- createDataPartition(training$classe, p = 1/10, list = FALSE)
-#mytrain <- training[inTrain1,] #for model building
-#myvalid <- training[inTrain2,] #for validation
+inTrain1 <- createDataPartition(training$classe, p = 1/10, list = FALSE)
+inTrain2 <- createDataPartition(training$classe, p = 1/10, list = FALSE)
+mytrain <- training[inTrain1,] #for model building
+myvalid <- training[inTrain2,] #for validation
 
 myrf <- train(classe ~ ., data = mytrain, method = "rf", trControl = CVcontrol) #rf applied
 predrf <- predict (myrf, myvalid)
