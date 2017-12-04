@@ -25,6 +25,7 @@
 
 # 13> created RF model; showed 94% accuracy on validation set
 # now we are fairly confident that we have a good model
+# OUT OF SAMPLE ERROR IS 6%. NOT SO BAD
 
 # 14> did prediction on testing data
 
