@@ -83,7 +83,7 @@ Prediction   A   B   C   D   E
 
 Overall Statistics
                                           
-               Accuracy : 0.9445          
+               Accuracy : 0.9445 <<6% OUT OF SAMPLE ERROR; NOT BAD>>          
                  95% CI : (0.9334, 0.9542)
     No Information Rate : 0.2856          
     P-Value [Acc > NIR] : < 2.2e-16       
