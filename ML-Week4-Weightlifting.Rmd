@@ -73,7 +73,7 @@ testresult
 > confrf
 Confusion Matrix and Statistics
 
-          Reference
+          ---- details below; ACCURACY and  OUT OF SAMPLE ERROR ----
 Prediction   A   B   C   D   E
          A 546   4   5   2   1
          B  13 343  17   1   6
